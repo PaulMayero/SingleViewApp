@@ -107,4 +107,11 @@ No it will not be the same.
 ## How would it be improved
 Response time can be improved by either indexing the database table or by using specialised search tools like ElasticSearch and lucene.
 
+## Further improvements that can be done
+1. Logging of all the data being ingested along the way from a central place.
+2. A data table can be created to store file checksums which can be used for reference duiring ingestion to prevent data duplication
+3. A table can be created to hold the uploaded csv file that wasn't reconciled against one that is reconciled to provide better reference in the future.
+4. the ingest_csv_file can be split into smaller functions to ensure modularity and reusability for other componenents.
+5. Tests can be written for the project.
+
 
