@@ -29,10 +29,15 @@ This application tries to demonstrate ingestion into Postgres database using Dja
 Note: Use Python3 within the virtualenvironment  
 5. Activate your virtualenvironment by running `source venv/bin/activate`  on your terminal prompt  
 6. Pip install all the project packages by running `pip install -r requirements.txt`
-7. Install Postgres on your device as per your OS of use.  
-8. Move into `musicalsingleview` Directory by `cd musicalsingleview/`  
-9.Run ` python manage.py migrate` then `python manage.py makemigrations` then finally ` python manage.py migrate` to create the tables used by the app.    
-10. Run `python manage.py runserver` to start the django server    
+7. Install Postgres on your device as per your OS of use. Then get into the postgres terminal by running `sudo su postgres -c psql`
+8. Once inside the postgres terminal, create the user `bmat` with password also `bmat`. The command will be as follows `CREATE USER bmat WITH PASSWORD 'bmat';`  
+9. Then alter the role of `bmat` to be able to create the database the app will use as follows : `ALTER ROLE bmat WITH CREATEDB;` 
+10. Switch to the role `bmat` as follows ` SET ROLE 'bmat';`   
+11. At this point create the database used by the app with the role of `bmat` by running `CREATE DATABASE musical_works;`  
+12. exit the postgres terminal by running `\q` 
+13. Move into `musicalsingleview` directory by `cd musicalsingleview/`  
+14. Run ` python manage.py migrate` then `python manage.py makemigrations` then finally ` python manage.py migrate` to create the tables used by the app.    
+15. Run `python manage.py runserver` to start the django server    
 
 ## How to ingest data
 Data in the folder csvFileFolder is meant to be ingested into the Postgres Database.  
